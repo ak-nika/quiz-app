@@ -7,7 +7,8 @@
   font-family: "Roboto", sans-serif;
 }
 body {
-  background-color: #ecf0f1;
+  height: 100vh;
+  background: url("./freepik__expand__78354.png") no-repeat center/cover;
 }
 h1 {
   text-align: center;
@@ -128,6 +129,7 @@ button:hover {
 .quiz .text {
   background-color: #3498db;
   border-radius: 8px 8px 0 0;
+  padding: 0 1rem;
   padding-bottom: 1rem;
 }
 .quiz .text p,
