@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Nika Quiz App</title>
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+  <body>
+    <h1>Nika Quiz App</h1>
+
+    <section class="signIn">
+      <h3>To start the game please enter a username</h3>
+      <input type="text" id="username" placeholder="Username" />
+      <button id="signInBtn">Sign In</button>
+    </section>
+
+    <section class="subjects">
+      <p>Welcome,</p>
+      <h3>Nika</h3>
+      <p>Please select a subject you want to play</p>
+
+      <div id="subjectsList">
+        <button>Maths</button>
+        <button>English</button>
+        <button>History</button>
+        <button>Geography</button>
+        <button>Physics</button>
+        <button>Chemistry</button>
+      </div>
+    </section>
+
+    <section class="rules">
+      <h3>Welcome to the <span id="selectedSubject">Maths</span> Quiz</h3>
+      <p>Please read the rules before starting the game</p>
+
+      <ul>
+        <li>There are 20 questions in total.</li>
+        <li>
+          Each question has 4 options. Please select one before going to the
+          next question.
+        </li>
+        <li>You have 60 seconds to all the questions.</li>
+        <li>Once you are done, the result will be displayed at the end.</li>
+        <li>
+          If you are unable to complete the questions in time, the result will
+          be displayed at the end.
+        </li>
+        <li>
+          Once you have read all the rules and understood them, click the start
+          button below to begin
+        </li>
+      </ul>
+
+      <button id="startBtn">Start</button>
+    </section>
+
+    <section class="quiz">
+      <main>0</main>
+
+      <div class="text">
+        <p>Question <span id="questionNumber">1</span> of 20</p>
+        <h3 id="question">What is 2 + 2?</h3>
+      </div>
+
+      <div id="options">
+        <label class="option">
+          <input type="radio" name="option" value="option1" />
+          <span>Option 1</span>
+        </label>
+        <label class="option">
+          <input type="radio" name="option" value="option2" />
+          <span>Option 2</span>
+        </label>
+        <label class="option">
+          <input type="radio" name="option" value="option3" />
+          <span>Option 3</span>
+        </label>
+        <label class="option">
+          <input type="radio" name="option" value="option4" />
+          <span>Option 4</span>
+        </label>
+      </div>
+
+      <div class="buttons">
+        <button id="prevBtn">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            height="24px"
+            viewBox="0 -960 960 960"
+            width="24px"
+            fill="#fff"
+          >
+            <path
+              d="M400-240 160-480l240-240 56 58-142 142h486v80H314l142 142-56 58Z"
+            />
+          </svg>
+        </button>
+        <button id="nextBtn">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            height="24px"
+            viewBox="0 -960 960 960"
+            width="24px"
+            fill="#fff"
+          >
+            <path
+              d="m560-240-56-58 142-142H160v-80h486L504-662l56-58 240 240-240 240Z"
+            />
+          </svg>
+        </button>
+      </div>
+    </section>
+
+    <section class="result">
+      <p>You have completed the quiz</p>
+      <h3>You scored <span id="score">10</span>/20</h3>
+
+      <div class="circle-container">
+        <svg class="progress-circle" width="150" height="150">
+          <!-- Background Circle -->
+          <circle
+            cx="75"
+            cy="75"
+            r="70"
+            stroke="#ecf0f1"
+            stroke-width="10"
+            fill="none"
+          />
+          <!-- Progress Circle -->
+          <circle
+            class="progress"
+            cx="75"
+            cy="75"
+            r="70"
+            stroke="#3498db"
+            stroke-width="10"
+            fill="none"
+            stroke-linecap="round"
+            stroke-dasharray="440"
+            stroke-dashoffset="440"
+          />
+        </svg>
+        <div class="percentage">
+          <span id="scorePercent">50%</span>
+        </div>
+      </div>
+    </section>
+  </body>
+  <script src="./script.js"></script>
+</html>
