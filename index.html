@@ -40,7 +40,7 @@
           Each question has 4 options. Please select one before going to the
           next question.
         </li>
-        <li>You have 60 seconds to all the questions.</li>
+        <li>You have 3 minutes to all the questions.</li>
         <li>Once you are done, the result will be displayed at the end.</li>
         <li>
           If you are unable to complete the questions in time, the result will
@@ -56,7 +56,7 @@
     </section>
 
     <section class="quiz">
-      <main>0</main>
+      <main id="timer">03:00</main>
 
       <div class="text">
         <p>Question <span id="questionNumber"></span> of 20</p>
@@ -126,6 +126,15 @@
         </svg>
         <div class="percentage">
           <span id="scorePercent">50%</span>
+        </div>
+      </div>
+
+      <div id="end">
+        <p>Thank you for playing</p>
+        <p>Would you like to play again?</p>
+        <div>
+          <button>Yes</button>
+          <button>No</button>
         </div>
       </div>
     </section>

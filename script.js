@@ -723,14 +723,17 @@ const signInBtn = document.querySelector("#signInBtn");
 const subjectBtns = document.querySelectorAll("#subjectsList button");
 const startBtn = document.querySelector("#startBtn");
 const options = document.getElementById("options");
+const timer = document.getElementById("timer");
 const nextBtn = document.querySelector("#nextBtn");
 const prevBtn = document.querySelector("#prevBtn");
+const endBtns = document.querySelectorAll("#end button");
 let selectedQuiz;
-let time = 60;
+let sec = 59;
+let min = 2;
 let score = 0;
 let currentIndex = 0;
 
-signIn.style.display = "flex";
+// signIn.style.display = "flex";
 username.focus();
 
 signInBtn.addEventListener("click", () => {
@@ -774,6 +777,26 @@ startBtn.addEventListener("click", () => {
   rules.style.display = "none";
   quiz.style.display = "block";
   displayQuestion();
+
+  const timerInterval = setInterval(() => {
+    timer.textContent = `${min < 10 ? `0${min}` : min}:${
+      sec < 10 ? `0${sec}` : sec
+    }`;
+
+    if (min === 0 && sec === 0) {
+      clearInterval(timerInterval);
+      displayResult();
+    } else if (sec === 0) {
+      min--;
+      sec = 59;
+    } else {
+      sec--;
+    }
+
+    if (sec < 30 && min === 0) {
+      timer.style.color = "#e74c3c";
+    }
+  }, 1000);
 });
 
 const displayQuestion = () => {
@@ -797,3 +820,67 @@ const displayQuestion = () => {
     displayResult();
   }
 };
+
+nextBtn.addEventListener("click", () => {
+  const selectedOption = document.querySelector('input[name="option"]:checked');
+  if (selectedOption) {
+    const answer = selectedOption.value;
+    if (answer === selectedQuiz[currentIndex].correct) {
+      score++;
+    }
+    currentIndex++;
+    displayQuestion();
+  } else {
+    alert("Please select an option");
+  }
+});
+
+prevBtn.addEventListener("click", () => {
+  if (currentIndex > 0) {
+    currentIndex--;
+    displayQuestion();
+  } else {
+    alert("You are at the first question");
+  }
+});
+
+const displayResult = () => {
+  quiz.style.display = "none";
+  result.style.display = "block";
+  document.getElementById("score").textContent = score;
+
+  const scorePercent = (score / selectedQuiz.length) * 100;
+  setProgress(scorePercent);
+};
+
+const setProgress = (percent) => {
+  const circle = document.querySelector(".progress");
+  const percentageText = document.getElementById("scorePercent");
+  const radius = 70;
+  const circumference = 2 * Math.PI * radius;
+  const offset = circumference - (percent / 100) * circumference;
+
+  circle.style.strokeDasharray = circumference;
+  circle.style.strokeDashoffset = offset;
+
+  if (percent < 40) {
+    circle.style.stroke = "#e74c3c";
+  } else if (percent < 70) {
+    circle.style.stroke = "#f1c40f";
+  } else {
+    circle.style.stroke = "#27ae60";
+  }
+
+  percentageText.textContent = `${percent}%`;
+};
+
+endBtns.forEach((button) => {
+  button.addEventListener("click", () => {
+    if (button.textContent === "Yes") {
+      subjects.style.display = "block";
+      result.style.display = "none";
+    } else {
+      window.location.reload();
+    }
+  });
+});
