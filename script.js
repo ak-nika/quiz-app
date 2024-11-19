@@ -712,7 +712,6 @@ const geographyQuestions = [
   },
 ];
 
-const signIn = document.querySelector(".signIn");
 const subjects = document.querySelector(".subjects");
 const usernameText = document.querySelector(".subjects h3");
 const rules = document.querySelector(".rules");
@@ -726,28 +725,13 @@ const options = document.getElementById("options");
 const timer = document.getElementById("timer");
 const nextBtn = document.querySelector("#nextBtn");
 const prevBtn = document.querySelector("#prevBtn");
-const endBtns = document.querySelectorAll("#end button");
 let selectedQuiz;
 let sec = 59;
 let min = 2;
 let score = 0;
 let currentIndex = 0;
 
-// signIn.style.display = "flex";
-username.focus();
-
-signInBtn.addEventListener("click", () => {
-  const usernameValue = username.value;
-
-  if (usernameValue.trim() !== "") {
-    signIn.style.display = "none";
-    subjects.style.display = "block";
-    usernameText.textContent = usernameValue;
-  } else {
-    alert("Please enter a username");
-    username.focus();
-  }
-});
+subjects.style.display = "block";
 
 subjectBtns.forEach((button) => {
   button.addEventListener("click", () => {
@@ -873,14 +857,3 @@ const setProgress = (percent) => {
 
   percentageText.textContent = `${percent}%`;
 };
-
-endBtns.forEach((button) => {
-  button.addEventListener("click", () => {
-    if (button.textContent === "Yes") {
-      subjects.style.display = "block";
-      result.style.display = "none";
-    } else {
-      window.location.reload();
-    }
-  });
-});

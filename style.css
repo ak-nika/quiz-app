@@ -25,18 +25,6 @@ section {
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   display: none;
 }
-.signIn {
-  display: none;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  gap: 1rem;
-}
-.signIn h3 {
-  text-align: center;
-  color: #2c3e50;
-  font-size: 24px;
-}
 .signIn input {
   width: 100%;
   padding: 0.5rem;
@@ -44,6 +32,7 @@ section {
   border: 1px solid #cccccc;
   border-radius: 4px;
   outline: none;
+  margin: 1rem 0;
 }
 button {
   background-color: #3498db;
@@ -71,7 +60,7 @@ button:hover {
   margin-top: 2rem;
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  gap: 0.5rem;
+  gap: 0.8rem;
 }
 .subjects div button:hover {
   transition: box-shadow 0.3s ease;
@@ -191,9 +180,6 @@ button:hover {
   align-items: center;
 }
 
-.result {
-  display: block;
-}
 .result p {
   color: #2c3e50;
   font-size: 18px;
@@ -224,10 +210,4 @@ button:hover {
   font-size: 24px;
   font-weight: bold;
   color: #2c3e50;
-}
-.result #end div {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-top: 1rem;
 }
