@@ -25,15 +25,6 @@ section {
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   display: none;
 }
-.signIn input {
-  width: 100%;
-  padding: 0.5rem;
-  margin: 0.5rem 0;
-  border: 1px solid #cccccc;
-  border-radius: 4px;
-  outline: none;
-  margin: 1rem 0;
-}
 button {
   background-color: #3498db;
   color: #ffffff;
@@ -47,15 +38,15 @@ button {
 button:hover {
   background-color: #2980b9;
 }
-
-.subjects p {
-  color: #2c3e50;
-  font-size: 18px;
-}
-.subjects h3 {
+section h3 {
   color: #2c3e50;
   font-size: 24px;
 }
+section p {
+  color: #2c3e50;
+  font-size: 18px;
+}
+
 .subjects div {
   margin-top: 2rem;
   display: grid;
@@ -67,13 +58,7 @@ button:hover {
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
 }
 
-.rules h3 {
-  color: #2c3e50;
-  font-size: 24px;
-}
 .rules p {
-  color: #2c3e50;
-  font-size: 18px;
   margin-top: 1rem;
 }
 .rules ul {
@@ -181,13 +166,9 @@ button:hover {
 }
 
 .result p {
-  color: #2c3e50;
-  font-size: 18px;
   text-align: center;
 }
 .result h3 {
-  color: #2c3e50;
-  font-size: 24px;
   text-align: center;
 }
 .result .circle-container {
@@ -210,4 +191,60 @@ button:hover {
   font-size: 24px;
   font-weight: bold;
   color: #2c3e50;
+}
+
+@media only screen and (max-width: 500px) {
+  h1 {
+    margin: 1rem 0;
+  }
+  section {
+    width: 100%;
+    margin: auto;
+  }
+  section h3 {
+    font-size: 20px;
+  }
+  section p {
+    font-size: 16px;
+  }
+
+  .rules ul {
+    font-size: 12px;
+  }
+
+  .subjects div {
+    grid-template-columns: 1fr;
+  }
+
+  .quiz {
+    margin-top: 30px;
+  }
+  .quiz main {
+    font-size: 16px;
+    width: 50px;
+    height: 50px;
+    top: -25px;
+  }
+  .quiz .text {
+    padding: 1rem;
+  }
+  .quiz .text h3 {
+    font-size: 18px;
+  }
+  #options {
+    gap: 10px;
+    padding: 0.8rem;
+  }
+  .option {
+    border-width: 1.5px;
+    gap: 8px;
+  }
+  .option input[type="radio"] {
+    width: 15px;
+    height: 15px;
+    border-width: 1.5px;
+  }
+  .option span {
+    font-size: 14px;
+  }
 }
