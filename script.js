@@ -725,6 +725,7 @@ const options = document.getElementById("options");
 const timer = document.getElementById("timer");
 const nextBtn = document.querySelector("#nextBtn");
 const prevBtn = document.querySelector("#prevBtn");
+const tryAgainBtn = document.getElementById("tryAgain");
 let selectedQuiz;
 let sec = 59;
 let min = 2;
@@ -857,3 +858,7 @@ const setProgress = (percent) => {
 
   percentageText.textContent = `${percent}%`;
 };
+
+tryAgainBtn.addEventListener("click", () => {
+  window.location.reload();
+});
